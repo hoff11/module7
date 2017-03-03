@@ -27,8 +27,11 @@ print_menu()
 # as long as the menu choice isn't "quit" get user options
 while menu_choice != 5:
     # get menu choice from user
-    menu_choice = int(input("Type in a number (1-5): "))
-    
+    try:
+        menu_choice = int(input("Type in a number (1-5): "))
+    except ValueError:
+        print_menu()
+
     # view current entries
     if menu_choice == 1:
         print("Current Users:")
